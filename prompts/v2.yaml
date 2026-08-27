@@ -19,4 +19,4 @@ system_prompt: |
   - summary: one sentence describing the issue
   - confidence: your confidence score between 0.0 and 1.0
   
-  Only respond with the JSON object. No other text.
+  Only respond with the JSON object. No other text.# ci trigger
