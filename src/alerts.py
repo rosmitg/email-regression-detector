@@ -163,7 +163,7 @@ async def send_slack_alert(
         if len(regressions) > 3:
             context_text += f"_...and {len(regressions) - 3} more_\n"
 
-        context_text += "\n_Full diff report saved to `/reports/latest.html`_"
+        context_text += f"\n<https://github.com/rosmitg/email-regression-detector/actions|View full report on GitHub Actions>"
 
         blocks.append({
             "type": "section",
