@@ -1,0 +1,357 @@
+{
+  "version": "1.0",
+  "created_at": "2026-08-27",
+  "description": "Hand labeled customer support emails for regression testing",
+  "cases": [
+    {
+      "id": "case_001",
+      "email": "Hi, I was charged twice for my subscription this month. Please refund the duplicate charge.",
+      "expected_category": "billing",
+      "difficulty": "easy",
+      "notes": "Clear billing issue"
+    },
+    {
+      "id": "case_002",
+      "email": "The app keeps crashing every time I try to upload a photo. I'm on iPhone 14.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Clear technical issue"
+    },
+    {
+      "id": "case_003",
+      "email": "I forgot my password and the reset email is not arriving in my inbox.",
+      "expected_category": "account",
+      "difficulty": "easy",
+      "notes": "Clear account issue"
+    },
+    {
+      "id": "case_004",
+      "email": "Your product is amazing! Just wanted to say thank you for the great service.",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "Compliment - general"
+    },
+    {
+      "id": "case_005",
+      "email": "I cancelled my subscription last month but I'm still being charged. This is unacceptable.",
+      "expected_category": "billing",
+      "difficulty": "easy",
+      "notes": "Billing after cancellation"
+    },
+    {
+      "id": "case_006",
+      "email": "The dashboard is loading very slowly. It takes about 30 seconds to open.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Performance issue"
+    },
+    {
+      "id": "case_007",
+      "email": "I need to update my email address on my account. How do I do that?",
+      "expected_category": "account",
+      "difficulty": "easy",
+      "notes": "Profile update request"
+    },
+    {
+      "id": "case_008",
+      "email": "When does your support team work? What are your business hours?",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "General inquiry"
+    },
+    {
+      "id": "case_009",
+      "email": "My invoice shows a charge for the premium plan but I only signed up for basic.",
+      "expected_category": "billing",
+      "difficulty": "medium",
+      "notes": "Wrong plan charged"
+    },
+    {
+      "id": "case_010",
+      "email": "I keep getting error 500 when I try to export my data. This has been happening for 3 days.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Error code - technical"
+    },
+    {
+      "id": "case_011",
+      "email": "My colleague added me to the team account but I cannot see any of the shared projects.",
+      "expected_category": "account",
+      "difficulty": "medium",
+      "notes": "Permissions/access issue"
+    },
+    {
+      "id": "case_012",
+      "email": "Do you offer discounts for non-profit organisations?",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "Pricing inquiry - general not billing"
+    },
+    {
+      "id": "case_013",
+      "email": "I was charged $99 instead of $9. I think there is a decimal error on your end.",
+      "expected_category": "billing",
+      "difficulty": "easy",
+      "notes": "Wrong amount charged"
+    },
+    {
+      "id": "case_014",
+      "email": "The mobile app is not available in Australia on the App Store. When will it launch here?",
+      "expected_category": "technical",
+      "difficulty": "medium",
+      "notes": "Availability issue - could be general but technical"
+    },
+    {
+      "id": "case_015",
+      "email": "I cannot log in. I enter my password correctly but it says invalid credentials every time.",
+      "expected_category": "account",
+      "difficulty": "easy",
+      "notes": "Login issue"
+    },
+    {
+      "id": "case_016",
+      "email": "How do I export my data as a CSV file?",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "How-to question"
+    },
+    {
+      "id": "case_017",
+      "email": "I signed up for annual billing but was charged monthly. Please fix this immediately.",
+      "expected_category": "billing",
+      "difficulty": "easy",
+      "notes": "Wrong billing cycle"
+    },
+    {
+      "id": "case_018",
+      "email": "The API is returning null values for the user_id field. This is breaking our integration.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "API bug - technical"
+    },
+    {
+      "id": "case_019",
+      "email": "I need to transfer my account to a different email address. The old one no longer exists.",
+      "expected_category": "account",
+      "difficulty": "medium",
+      "notes": "Account transfer"
+    },
+    {
+      "id": "case_020",
+      "email": "Can you integrate with Zapier? We need to connect your tool to our workflow.",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "Integration question"
+    },
+    {
+      "id": "case_021",
+      "email": "I requested a refund 2 weeks ago and still have not received it. Order #45231.",
+      "expected_category": "billing",
+      "difficulty": "easy",
+      "notes": "Refund follow up"
+    },
+    {
+      "id": "case_022",
+      "email": "Notifications are not working on Android. I have enabled all permissions.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Mobile notification bug"
+    },
+    {
+      "id": "case_023",
+      "email": "I accidentally deleted my account. Is there any way to recover it?",
+      "expected_category": "account",
+      "difficulty": "medium",
+      "notes": "Account recovery"
+    },
+    {
+      "id": "case_024",
+      "email": "What is the difference between the Pro and Enterprise plans?",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "Plan comparison - general"
+    },
+    {
+      "id": "case_025",
+      "email": "You charged my card that expired last year. How did that happen?",
+      "expected_category": "billing",
+      "difficulty": "medium",
+      "notes": "Expired card charge - billing"
+    },
+    {
+      "id": "case_026",
+      "email": "The search function returns no results even when I search for something that exists.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Search bug"
+    },
+    {
+      "id": "case_027",
+      "email": "I need to add two factor authentication to my account. Where is that setting?",
+      "expected_category": "account",
+      "difficulty": "easy",
+      "notes": "Security setting - account"
+    },
+    {
+      "id": "case_028",
+      "email": "Your documentation says feature X exists but I cannot find it anywhere in the app.",
+      "expected_category": "general",
+      "difficulty": "medium",
+      "notes": "Doc vs product mismatch - general"
+    },
+    {
+      "id": "case_029",
+      "email": "I want to upgrade my plan. What payment methods do you accept?",
+      "expected_category": "billing",
+      "difficulty": "medium",
+      "notes": "Payment method inquiry - billing not general"
+    },
+    {
+      "id": "case_030",
+      "email": "Files over 10MB are failing to upload. Smaller files work fine.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Upload size bug"
+    },
+    {
+      "id": "case_031",
+      "email": "My team member left the company. How do I remove them from our account?",
+      "expected_category": "account",
+      "difficulty": "easy",
+      "notes": "User management"
+    },
+    {
+      "id": "case_032",
+      "email": "I love the new dashboard update. The new design is much cleaner.",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "Positive feedback"
+    },
+    {
+      "id": "case_033",
+      "email": "My free trial ended but I never received a warning email before being charged.",
+      "expected_category": "billing",
+      "difficulty": "medium",
+      "notes": "Trial to paid conversion complaint"
+    },
+    {
+      "id": "case_034",
+      "email": "The dark mode is not saving. Every time I reload the page it resets to light mode.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Settings not persisting - technical"
+    },
+    {
+      "id": "case_035",
+      "email": "I am trying to log in but it says my account is suspended. I have done nothing wrong.",
+      "expected_category": "account",
+      "difficulty": "medium",
+      "notes": "Suspended account"
+    },
+    {
+      "id": "case_036",
+      "email": "Do you have a mobile app for Android?",
+      "expected_category": "general",
+      "difficulty": "easy",
+      "notes": "Product availability question"
+    },
+    {
+      "id": "case_037",
+      "email": "I cannot find my receipt for last month. Can you resend it to my email?",
+      "expected_category": "billing",
+      "difficulty": "easy",
+      "notes": "Receipt request - billing"
+    },
+    {
+      "id": "case_038",
+      "email": "The graph on the analytics page is showing wrong dates. It shows last year's data.",
+      "expected_category": "technical",
+      "difficulty": "medium",
+      "notes": "Data display bug"
+    },
+    {
+      "id": "case_039",
+      "email": "I want to change the name on my account from my old name to my new married name.",
+      "expected_category": "account",
+      "difficulty": "easy",
+      "notes": "Name change - account"
+    },
+    {
+      "id": "case_040",
+      "email": "We are a school with 500 students. Do you offer educational pricing?",
+      "expected_category": "general",
+      "difficulty": "medium",
+      "notes": "Educational pricing - general not billing"
+    },
+    {
+      "id": "case_041",
+      "email": "I have been waiting 3 months for my refund. This is completely unacceptable.",
+      "expected_category": "billing",
+      "difficulty": "easy",
+      "notes": "Delayed refund - strong billing signal"
+    },
+    {
+      "id": "case_042",
+      "email": "Your website is down. I cannot access anything.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Outage report"
+    },
+    {
+      "id": "case_043",
+      "email": "I share an account with my business partner. Can we both have separate logins?",
+      "expected_category": "account",
+      "difficulty": "medium",
+      "notes": "Multi user account question"
+    },
+    {
+      "id": "case_044",
+      "email": "I think there might be a security vulnerability in your login page. Who do I report this to?",
+      "expected_category": "technical",
+      "difficulty": "hard",
+      "notes": "Security report - technical not general"
+    },
+    {
+      "id": "case_045",
+      "email": "My invoice has the wrong company name on it. I need it corrected for tax purposes.",
+      "expected_category": "billing",
+      "difficulty": "medium",
+      "notes": "Invoice correction - billing"
+    },
+    {
+      "id": "case_046",
+      "email": "The auto-complete suggestions stopped working after your last update.",
+      "expected_category": "technical",
+      "difficulty": "easy",
+      "notes": "Feature regression after update"
+    },
+    {
+      "id": "case_047",
+      "email": "I have been locked out of my account after too many failed login attempts.",
+      "expected_category": "account",
+      "difficulty": "easy",
+      "notes": "Account lockout"
+    },
+    {
+      "id": "case_048",
+      "email": "Is your service compliant with GDPR regulations?",
+      "expected_category": "general",
+      "difficulty": "medium",
+      "notes": "Compliance question - general"
+    },
+    {
+      "id": "case_049",
+      "email": "I upgraded to annual plan yesterday but was still charged the monthly rate today.",
+      "expected_category": "billing",
+      "difficulty": "hard",
+      "notes": "Edge case - plan change timing"
+    },
+    {
+      "id": "case_050",
+      "email": "Nothing works. Your whole system is broken and I want my money back.",
+      "expected_category": "billing",
+      "difficulty": "hard",
+      "notes": "Ambiguous - mentions money so billing wins"
+    }
+  ]
+}
