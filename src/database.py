@@ -11,7 +11,7 @@ async def get_connection():
 async def setup_database():
     """Create tables if they don't exist"""
     conn = await get_connection()
-    
+
     await conn.execute("""
         CREATE TABLE IF NOT EXISTS eval_runs (
             id          SERIAL PRIMARY KEY,
@@ -25,10 +25,11 @@ async def setup_database():
             avg_latency FLOAT,
             avg_cost    FLOAT,
             total_cost  FLOAT,
+            avg_judge_score FLOAT,
             status      TEXT DEFAULT 'running'
         )
     """)
-    
+
     await conn.execute("""
         CREATE TABLE IF NOT EXISTS eval_results (
             id              SERIAL PRIMARY KEY,
@@ -46,10 +47,11 @@ async def setup_database():
             cost            FLOAT,
             input_tokens    INT,
             output_tokens   INT,
+            difficulty      TEXT,
             created_at      TIMESTAMP DEFAULT NOW()
         )
     """)
-    
+
     await conn.close()
     print("Database setup complete")
 
@@ -71,10 +73,11 @@ async def save_eval_result(run_id: str, result: dict):
             run_id, case_id, prompt_version,
             email_text, expected_category, got_category,
             summary, confidence, judge_score, passed,
-            latency, cost, input_tokens, output_tokens
+            latency, cost, input_tokens, output_tokens,
+            difficulty
         ) VALUES (
             $1, $2, $3, $4, $5, $6,
-            $7, $8, $9, $10, $11, $12, $13, $14
+            $7, $8, $9, $10, $11, $12, $13, $14, $15
         )
     """,
         run_id,
@@ -90,7 +93,8 @@ async def save_eval_result(run_id: str, result: dict):
         result["latency"],
         result["cost"],
         result["input_tokens"],
-        result["output_tokens"]
+        result["output_tokens"],
+        result.get("difficulty", "medium")
     )
     await conn.close()
 
@@ -99,14 +103,15 @@ async def update_run_summary(run_id: str, summary: dict):
     conn = await get_connection()
     await conn.execute("""
         UPDATE eval_runs SET
-            total_cases = $2,
-            passed      = $3,
-            failed      = $4,
-            accuracy    = $5,
-            avg_latency = $6,
-            avg_cost    = $7,
-            total_cost  = $8,
-            status      = 'completed'
+            total_cases     = $2,
+            passed          = $3,
+            failed          = $4,
+            accuracy        = $5,
+            avg_latency     = $6,
+            avg_cost        = $7,
+            total_cost      = $8,
+            avg_judge_score = $9,
+            status          = 'completed'
         WHERE run_id = $1
     """,
         run_id,
@@ -116,19 +121,31 @@ async def update_run_summary(run_id: str, summary: dict):
         summary["accuracy"],
         summary["avg_latency"],
         summary["avg_cost"],
-        summary["total_cost"]
+        summary["total_cost"],
+        summary.get("avg_judge_score", 0)
     )
     await conn.close()
 
-async def get_last_run(prompt_version: str) -> dict:
-    """Get the most recent completed run for a prompt version"""
+async def get_last_run(current_run_id: str = None) -> dict:
+    """Get the previous completed run (not the current one)"""
     conn = await get_connection()
-    row = await conn.fetchrow("""
-        SELECT * FROM eval_runs
-        WHERE status = 'completed'
-        ORDER BY created_at DESC
-        LIMIT 1
-    """)
+
+    if current_run_id:
+        row = await conn.fetchrow("""
+            SELECT * FROM eval_runs
+            WHERE status = 'completed'
+            AND run_id != $1
+            ORDER BY created_at ASC
+            LIMIT 1
+        """, current_run_id)
+    else:
+        row = await conn.fetchrow("""
+            SELECT * FROM eval_runs
+            WHERE status = 'completed'
+            ORDER BY created_at ASC
+            LIMIT 1
+        """)
+
     await conn.close()
     return dict(row) if row else None
 
