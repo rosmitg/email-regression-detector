@@ -188,9 +188,23 @@ async def run_eval(prompt_version: str = "v1") -> dict:
         console.print(f"\n[bold yellow]{'='*50}[/bold yellow]")
         console.print(report)
         console.print(f"[bold yellow]{'='*50}[/bold yellow]\n")
+
         summary["regression_report"] = report
         summary["regressions"] = regressions
         summary["comparison"] = comparison
+
+        # Send Slack alert
+        from src.report import generate_html_report
+        report_path = await generate_html_report(
+            comparison,
+            regressions,
+            improvements,
+            results
+        )
+
+        # Send Slack alert
+        from src.alerts import send_slack_alert
+        await send_slack_alert(comparison, regressions, improvements)
 
     return summary
 
